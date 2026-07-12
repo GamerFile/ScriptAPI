@@ -1,7 +1,7 @@
 import { Player } from "@minecraft/server";
 import { MessageFormData, ActionFormData, ModalFormData } from "@minecraft/server-ui";
 interface FormResponse {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 declare class ProtoForm {
@@ -11,7 +11,7 @@ declare class ProtoForm {
     body?: string;
     btn1?: string;
     btn2?: string;
-    btns?: [string, string | undefined][];
+    btns?: (string | [string] | [string, string | undefined])[];
     response?: (result: FormResponse) => void;
   });
 

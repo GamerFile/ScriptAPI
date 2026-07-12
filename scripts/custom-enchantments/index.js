@@ -1,6 +1,6 @@
-// Script example for ScriptAPI
 // Author: iBlqzed <https://github.com/iBlqzed>
 // Project: https://github.com/JaylyDev/ScriptAPI
+// @ts-nocheck
 const itemTypes = {
   sword: [
       "minecraft:wooden_sword",
@@ -108,7 +108,7 @@ world.afterEvents.entityHitBlock.subscribe(({ damagingEntity, hitBlock }) => {
      */
     //@ts-ignore
       const inv = entity.getComponent("inventory").container;
-      const item = inv.getItem(damagingEntity.selectedSlot);
+      const item = inv.getItem(damagingEntity.selectedSlotIndex);
       if (!item)
           return;
       const itemEnchants = item.getLore().map(lore => { return { data: enchants[names[lore.split(" ")[0]]], lore }; });
@@ -126,7 +126,7 @@ world.afterEvents.entityHitEntity.subscribe(({ damagingEntity, hitEntity }) => {
      */
     //@ts-ignore
       const inv = entity.getComponent("inventory").container;
-      const item = inv.getItem(damagingEntity.selectedSlot);
+      const item = inv.getItem(damagingEntity.selectedSlotIndex);
       if (!item)
           return;
       const itemEnchants = item.getLore().map(lore => { return { data: enchants[names[lore.split(" ")[0]]], lore }; });
@@ -145,7 +145,7 @@ world.afterEvents.entityHurt.subscribe(({ hurtEntity, damageSource, damage }) =>
      */
     //@ts-ignore
       const inv = damagingEntity.getComponent("inventory").container;
-      const item = inv.getItem(damageSource.damagingEntity.selectedSlot);
+      const item = inv.getItem(damageSource.damagingEntity.selectedSlotIndex);
       if (!item)
           return;
       const itemEnchants = item.getLore().map(lore => { return { data: enchants[names[lore.split(" ")[0]]], lore }; });
@@ -166,12 +166,12 @@ world.beforeEvents.itemUse.subscribe(({ source, itemStack }) => {
       });
   }
 });
-world.beforeEvents.itemUseOn.subscribe((event) => {
-  if (event.source instanceof Player) {
+world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
+  if (event.itemStack) {
       const itemEnchants = event.itemStack.getLore().map(lore => { return { data: enchants[names[lore.split(" ")[0]]], lore }; });
       itemEnchants.forEach((e) => {
           if (e.data?.rightClickBlock)
-              e.data.rightClickBlock({ player: event.source, level: romanToInt(e.lore.slice(e.data.display.length + 1)), item: event.itemStack, block: event.source.dimension.getBlock(event.faceLocation) });
+              e.data.rightClickBlock({ player: event.player, level: romanToInt(e.lore.slice(e.data.display.length + 1)), item: event.itemStack, block: event.block });
       });
   }
 });
@@ -182,7 +182,7 @@ world.afterEvents.playerBreakBlock.subscribe(({ player, block, brokenBlockPermut
      */
     //@ts-ignore
   const inv = player.getComponent("inventory").container;
-  const item = inv.getItem(player.selectedSlot);
+  const item = inv.getItem(player.selectedSlotIndex);
   if (!item)
       return;
   const itemEnchants = item.getLore().map(lore => { return { data: enchants[names[lore.split(" ")[0]]], lore }; });

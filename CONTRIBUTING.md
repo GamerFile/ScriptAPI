@@ -16,11 +16,9 @@ Contributing infomation. This info changes because Script API is currently in ac
 In the main file, you must input basic credentials for the scripts with the right format. For example, here are the first few lines of script example:
 
 ```js
-// Script example for ScriptAPI
 // Author: Alice <https://github.com/alice>
 //         Bob <https://github.com/bob>
 //         Steve <https://steve.com/>
-// Project: https://github.com/JaylyDev/ScriptAPI
 ```
 
 In order for the pull request to be merged, the scripts must pass TypeScript Compiling process for all JavaScript/TypeScript files.
@@ -35,14 +33,10 @@ If the check did not pass, go to the 'details' section and see what section of t
 
 An editor extension sample should only be used in Minecraft Editor, otherwise the sample should be hosted in 'scripts' folder.
 
-- Create an editor extension sample in [editorExtensions](./editorExtensions/) directory.
-
-- Create the same folder structure as used in scripts folder and a header in main file like creating a new script sample.
-
-- We recommend using TypeScript for editor extension samples.
+Currently, we do not provide support uploading and maintaince for editor extension samples in this repository. Please check out [Mojang's Bedrock Editor Samples](https://github.com/Mojang/minecraft-editor-extension-samples/) instead.
 
 ## Don't edit docs folder
 
 Documentation are no longer being updated as mentioned in README.
 
-Please do not submit any pull requests that changes any content to the docs directory. Instead, please visit [Bedrock Wiki](https://wiki.bedrock.dev/scripting/starting-scripts) and perhaps contribute scripting documentation in Bedrock Wiki GitHub repository: https://github.com/Bedrock-OSS/bedrock-wiki/tree/wiki/docs/scripting
+Please do not submit any pull requests that changes any content to the docs directory. Instead, please visit [Bedrock Wiki](https://wiki.bedrock.dev/scripting/scripting-intro.html) and perhaps contribute scripting documentation in Bedrock Wiki GitHub repository: https://github.com/Bedrock-OSS/bedrock-wiki/tree/wiki/docs/scripting

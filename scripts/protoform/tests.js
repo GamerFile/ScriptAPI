@@ -1,11 +1,11 @@
 import {
     world,Player
 } from "@minecraft/server";
-import { ProtoForm } from "index.js";
+import { ProtoForm } from "./index.js";
 const actionform = new ProtoForm({
     title: "Test ActionForm",
     body: "Body...",
-    btns: [["Hey","Texture Path"],["Btn2","Path2"]],
+    btns: [["Hey","Texture Path"],["Btn2","Path2"],"btn3","btn4",["btn5"]],
     response: ({selection:s}) => {
         console.warn("selected no" + s)
     }

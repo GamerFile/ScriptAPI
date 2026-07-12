@@ -1,9 +1,63 @@
-var _a;
 /**
  * Contains a description of a vector.
  * @implements {Vector3}
  */
 export class Vector {
+    /**
+     * X component of this vector.
+     * @type {number}
+     */
+    x;
+    /**
+     * Y component of this vector.
+     * @type {number}
+     */
+    y;
+    /**
+     * Z component of this vector.
+     * @type {number}
+     */
+    z;
+    /**
+     * A constant vector that represents (0, 0, -1).
+     * @readonly
+     */
+    static back = new this(0, 0, -1);
+    /**
+     * A constant vector that represents (0, -1, 0).
+     * @readonly
+     */
+    static down = new this(0, -1, 0);
+    /**
+     * A constant vector that represents (0, 0, 1).
+     * @readonly
+     */
+    static forward = new this(0, 0, 1);
+    /**
+     * A constant vector that represents (-1, 0, 0).
+     * @readonly
+     */
+    static left = new this(-1, 0, 0);
+    /**
+     * A constant vector that represents (1, 1, 1).
+     * @readonly
+     */
+    static one = new this(1, 1, 1);
+    /**
+     * A constant vector that represents (1, 0, 0).
+     * @readonly
+     */
+    static right = new this(1, 0, 0);
+    /**
+     * A constant vector that represents (0, 1, 0).
+     * @readonly
+     */
+    static up = new this(0, 1, 0);
+    /**
+     * A constant vector that represents (0, 0, 0).
+     * @readonly
+     */
+    static zero = new this(0, 0, 0);
     /**
      * @remarks
      * Creates a new instance of an abstract vector.
@@ -227,44 +281,3 @@ export class Vector {
         return vector;
     }
 }
-_a = Vector;
-/**
- * A constant vector that represents (0, 0, -1).
- * @readonly
- */
-Vector.back = new _a(0, 0, -1);
-/**
- * A constant vector that represents (0, -1, 0).
- * @readonly
- */
-Vector.down = new _a(0, -1, 0);
-/**
- * A constant vector that represents (0, 0, 1).
- * @readonly
- */
-Vector.forward = new _a(0, 0, 1);
-/**
- * A constant vector that represents (-1, 0, 0).
- * @readonly
- */
-Vector.left = new _a(-1, 0, 0);
-/**
- * A constant vector that represents (1, 1, 1).
- * @readonly
- */
-Vector.one = new _a(1, 1, 1);
-/**
- * A constant vector that represents (1, 0, 0).
- * @readonly
- */
-Vector.right = new _a(1, 0, 0);
-/**
- * A constant vector that represents (0, 1, 0).
- * @readonly
- */
-Vector.up = new _a(0, 1, 0);
-/**
- * A constant vector that represents (0, 0, 0).
- * @readonly
- */
-Vector.zero = new _a(0, 0, 0);
